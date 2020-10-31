@@ -18,3 +18,8 @@
 	padding-top: 0em;
 	margin-top: 0em;
 }
+
+/* Alumni hidden on page load */
+.alum {
+	display: none;
+}
