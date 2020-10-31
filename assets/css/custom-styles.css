@@ -23,3 +23,7 @@
 .alum {
 	display: none;
 }
+
+.icon.fa-regular:before {
+			font-family: 'Font Awesome 5 Free';
+		}
