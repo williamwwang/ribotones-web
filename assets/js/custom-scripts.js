@@ -45,9 +45,9 @@ $(document).ready(function (){
 			var fadeOutButtons = "";
 			var fadeInButtons = "";
 			if (memberSet == "current") {
-				fadeOutButtons = "#show-piano, #show-strings, #show-winds, #show-triangle";
+				fadeOutButtons = "#show-piano, #show-strings, #show-winds, #show-triangle, #show-all";
 			} else if (elementName == "current") {
-				fadeInButtons = "#show-piano, #show-strings, #show-winds, #show-triangle";
+				fadeInButtons = "#show-piano, #show-strings, #show-winds, #show-triangle, #show-all";
 			}
 
 			var fadeOutSelector = "";
@@ -77,7 +77,9 @@ $(document).ready(function (){
 				  $(fadeInSelector).fadeTo('fast', 1);
 				  currentInstrument = "all";
 				  memberSet = elementName;
-				  $("#show-all").addClass("primary");
+				  if (memberSet == "current") {
+				  	$("#show-all").addClass("primary");
+				  }
 				});
 			}
 	})
