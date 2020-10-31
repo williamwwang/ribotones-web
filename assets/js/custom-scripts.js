@@ -1,4 +1,7 @@
 $(document).ready(function (){
+
+	var MEMBER_DISPLAY = "flex";
+
 	var currentInstrument= 'all';
 	// current, exec, alumni
 	var memberSet = 'current';
@@ -14,13 +17,13 @@ $(document).ready(function (){
 			$(e.target).toggleClass("primary");
 			$("#show-"+currentInstrument).toggleClass("primary");
 
-			var fadeOutSelector = "."+currentInstrument;
-			var fadeInSelector = "."+elementName;
+			var fadeOutSelector = "."+currentInstrument+":not(.alum)";
+			var fadeInSelector = "."+elementName+":not(.alum)";
 
 			if (currentInstrument == "all") {
-				fadeOutSelector = ".members > div";
+				fadeOutSelector = ".members > div:not(.alum)";
 			} else if (elementName == "all") {
-				fadeInSelector = ".members > div";
+				fadeInSelector = ".members > div:not(.alum)";
 			}
 
 			// Fade old instrument out and new instrument in
@@ -54,13 +57,13 @@ $(document).ready(function (){
 			var fadeInSelector = "";
 
 			if (elementName == "current") {
-				fadeInSelector = ".members > div";
+				fadeInSelector = ".members > div:not(.alum)";
 			} else if (elementName == "alumni") {
 				fadeInSelector = ".members > .alum";
 			}
 
 			if (memberSet == "current") {
-				fadeOutSelector = ".members > div";
+				fadeOutSelector = ".members > div:not(.alum)";
 			} else if (memberSet == "alumni") {
 				fadeOutSelector = ".members > .alum";
 			}
@@ -74,6 +77,10 @@ $(document).ready(function (){
 
 			$.when($(fadeOutSelector).fadeTo("fast", 0)).then(function() {
 				  $(fadeOutSelector).css("display", "none");
+				  // Set alumni display style to flex
+				  if (elementName == "alumni") {
+				  	$(".members > .alum").css("display", MEMBER_DISPLAY);
+				  }
 				  $(fadeInSelector).fadeTo('fast', 1);
 				  currentInstrument = "all";
 				  memberSet = elementName;
