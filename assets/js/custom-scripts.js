@@ -5,8 +5,8 @@ $(document).ready(function (){
 	var currentInstrument= 'all';
 	// current, exec, alumni
 	var memberSet = 'current';
-	var instrumentTagsStr = '#show-all, #show-piano, #show-strings, #show-winds, #show-triangle';
-	var $instrumentTags = $('#show-all, #show-piano, #show-strings, #show-winds, #show-triangle');
+	var instrumentTagsStr = '#show-all, #show-piano, #show-strings, #show-winds, #show-triangle, #show-voice';
+	var $instrumentTags = $('#show-all, #show-piano, #show-strings, #show-winds, #show-triangle, #show-voice');
 	var $memberTags = $('#show-current, #show-alumni');
 
 	$instrumentTags.click(function(e) {
@@ -48,9 +48,9 @@ $(document).ready(function (){
 			var fadeOutButtons = "";
 			var fadeInButtons = "";
 			if (memberSet == "current") {
-				fadeOutButtons = "#show-piano, #show-strings, #show-winds, #show-triangle, #show-all";
+				fadeOutButtons = "#show-piano, #show-strings, #show-winds, #show-triangle, #show-voice, #show-all";
 			} else if (elementName == "current") {
-				fadeInButtons = "#show-piano, #show-strings, #show-winds, #show-triangle, #show-all";
+				fadeInButtons = "#show-piano, #show-strings, #show-winds, #show-triangle, #show-voice, #show-all";
 			}
 
 			var fadeOutSelector = "";
